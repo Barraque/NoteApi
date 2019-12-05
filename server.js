@@ -3,21 +3,6 @@ var express = require('express'),
 	bodyparser = require('body-parser');
 	port = process.env.PORT || 8080;
 
-const mysql = require('mysql');
-
-//local mysql db connection
-var connection = mysql.createConnection({
-    host     : 'localhost',
-    user     : 'louis',
-    password : '21808160',
-    database : 'notebase'
-});
-
-connection.connect(function(err) {
-    if (err) throw err;
-});
-
-module.exports = connection;
 
 app.listen(port);
 console.log('server started');

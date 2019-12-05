@@ -2,13 +2,28 @@
 var sql = require('./db.js');
 
 //Task object constructor
-var Id = function(ids){
-    this.id = ids.id;
+var note = function(id,notes){
+	this.id = id;
+    this.txt = notes.txt;
 };
 
-Id.getAllId = function (result){
-	console.log("ici");
-	sql.query("SELECT * FROM IDS", function (err, res) {
+note.createNote = function (notes,result){
+	console.log(notes.id);
+	sql.query("INSERT INTO notes SET ?", notes, function (err, res) {
+                
+                if(err) {
+                    console.log("error: ", err);
+                    result(err, null);
+                }
+                else{
+                    console.log(res);
+                    result(null,notes.id);
+                }
+            });   
+};
+
+note.getNote= function (id,result){
+	sql.query("SELECT txt from notes where id= ?", id, function (err, res) {
                 
                 if(err) {
                     console.log("error: ", err);
@@ -20,31 +35,4 @@ Id.getAllId = function (result){
                 }
             });   
 };
-Id.createId = function (newId,result){
-	sql.query("INSERT INTO IDS SET ?", newId, function (err, res) {
-                
-                if(err) {
-                    console.log("error: ", err);
-                    result(err, null);
-                }
-                else{
-                    console.log(res);
-                    result(res.affectedRows,res);
-                }
-            });   
-};
-
-Id.getId= function (newId,result){
-	sql.query("SELECT id from IDS where id= ?", newId, function (err, res) {
-                
-                if(err) {
-                    console.log("error: ", err);
-                    result(err, null);
-                }
-                else{
-                    console.log(res);
-                    result(null, res);
-                }
-            });   
-};
-module.exports = Id;
+module.exports = note;
