@@ -1,0 +1,147 @@
+/*! normalize.css v8.0.1 | MIT License | github.com/necolas/normalize.css */html{line-height:1.15;-webkit-text-size-adjust:100%}body{margin:0}main{display:block}h1{font-size:2em;margin:.67em 0}hr{box-sizing:content-box;height:0;overflow:visible}pre{font-family:monospace,monospace;font-size:1em}a{background-color:transparent}abbr[title]{border-bottom:none;text-decoration:underline;text-decoration:underline dotted}b,strong{font-weight:bolder}code,kbd,samp{font-family:monospace,monospace;font-size:1em}small{font-size:80%}sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline}sub{bottom:-.25em}sup{top:-.5em}img{border-style:none}button,input,optgroup,select,textarea{font-family:inherit;font-size:100%;line-height:1.15;margin:0}button,input{overflow:visible}button,select{text-transform:none}[type=button],[type=reset],[type=submit],button{-webkit-appearance:button}[type=button]::-moz-focus-inner,[type=reset]::-moz-focus-inner,[type=submit]::-moz-focus-inner,button::-moz-focus-inner{border-style:none;padding:0}[type=button]:-moz-focusring,[type=reset]:-moz-focusring,[type=submit]:-moz-focusring,button:-moz-focusring{outline:1px dotted ButtonText}fieldset{padding:.35em .75em .625em}legend{box-sizing:border-box;color:inherit;display:table;max-width:100%;padding:0;white-space:normal}progress{vertical-align:baseline}textarea{overflow:auto}[type=checkbox],[type=radio]{box-sizing:border-box;padding:0}[type=number]::-webkit-inner-spin-button,[type=number]::-webkit-outer-spin-button{height:auto}[type=search]{-webkit-appearance:textfield;outline-offset:-2px}[type=search]::-webkit-search-decoration{-webkit-appearance:none}::-webkit-file-upload-button{-webkit-appearance:button;font:inherit}details{display:block}summary{display:list-item}template{display:none}[hidden]{display:none}
+/*# sourceMappingURL=normalize.min.css.map */
+
+html, body {
+  width: 500px;
+  height: 600px;
+  padding: 0;
+  margin: 0;
+  background-color: #fff;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+.content {
+    display: block;
+    box-sizing: border-box;
+    padding: 1em;
+    width: 100%;
+    height: calc(100% - 35px);
+}
+
+nav {
+    display: flex;
+    width: 100%;
+    height: 32px;
+    background-color: #eee;
+    border-bottom: 3px solid #fff;
+}
+
+nav a {
+    display: block;
+    padding: 0 1em;
+    height: 32px;
+    min-width: 50px;
+    line-height: 32px;
+    text-decoration: none;
+    text-align: center;
+    color: #828282;
+    background-color: #dfe3e5;
+}
+nav a.active_tab {
+    background-color: #fff;
+}
+nav a:hover {
+}
+
+.tab-section-title {
+    text-align: center;
+    color: #828282;
+}
+
+label {
+    color: #828282;
+    font-weight: bold;
+    font-size: 14px;
+}
+label:not(:first-of-type) {
+    margin-top: 1em;
+}
+
+input.text-input,
+textarea {
+    background-color: #eef2f5;
+    border: 1px solid #dcdedf;
+    height: 32px;
+    width: 100%;
+    padding-left: 0.5em;
+}
+
+textarea {
+    width: 100%;
+    height: calc(100% - 200px);
+}
+
+input[type="submit"] {  
+    margin-top: 0.5em;
+    background-color: #aace3a;
+    border: 1px solid #5b712c;
+    color: #fff;
+    text-align: center;
+    width: 120px;
+    height: 32px;
+    line-height: 32px;
+    cursor: pointer;
+    transition: 200ms ease-in-out;
+}
+
+input[type="submit"]:hover {
+    background-color: #5b712c;
+}
+
+input[type="reset"] {  
+    margin-top: 0.5em;
+    background-color: #c60030;
+    border: 1px solid #630929;
+    color: #fff;
+    text-align: center;
+    width: 120px;
+    height: 32px;
+    line-height: 32px;
+    cursor: pointer;
+    transition: 200ms ease-in-out;
+}
+
+input[type="reset"]:hover {
+    background-color: #630929;
+}
+
+input[type="checkbox"] {
+    margin-left: 1em;
+    vertical-align: middle;
+    margin-bottom: 0.1em;
+}
+
+.note {
+    width: 100%;
+    height: 32px;
+    background-color: #eef2f5;
+    position: relative;
+    text-decoration: none;
+    display: block;
+    margin-top: 0.5em;
+}
+
+.note span {
+    line-height: 32px;
+    color: #828282;
+}
+
+.note .id {
+    font-weight: bold;
+    margin-left: 8px;
+}
+
+.note .time {
+    position: absolute;
+    right: 8px;
+    font-style: italic;
+}
+
+.notes-section {
+    display: block;
+    flex-direction: column;
+    width: 100%;
+    height: calc(100% - 96px);
+    box-sizing: border-box;
+    overflow: auto;
+}

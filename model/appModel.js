@@ -1,6 +1,5 @@
 'user strict';
 var sql = require('./db.js');
-
 //Task object constructor
 var note = function(id,notes){
 	this.id = id;
@@ -8,7 +7,6 @@ var note = function(id,notes){
 };
 
 note.createNote = function (notes,result){
-	console.log(notes.id);
 	sql.query("INSERT INTO notes SET ?", notes, function (err, res) {
                 
                 if(err) {
@@ -30,8 +28,8 @@ note.getNote= function (id,result){
                     result(err, null);
                 }
                 else{
-                    console.log(res);
-                    result(null, res);
+					console.log(res);
+					result(null, res);
                 }
             });   
 };
