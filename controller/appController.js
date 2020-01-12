@@ -1,6 +1,7 @@
 'use strict';
 const shortid = require('shortid');
-var Task = require('../model/appModel.js');
+var Task = require('../model/NoteappModel.js');
+var Drive = require('../model/DriveappModel.js');
 var Test = {};
 Test.get_note = function(req, res) {
 	Task.getNote(req.params.id,function(err, task) {
@@ -32,5 +33,21 @@ Test.create_a_note = function(req, res) {
 				res.json(task);
 				});
 	}
+};
+Test.place_a_file = function(req,res){
+	console.log(Drive.uploadfile);
+	Drive.uploadfile(req,function(err,file){
+		if (err){
+			console.log(err);
+			res.status(400);
+			res.send(err);
+		}
+		else{
+			console.log(file);
+			res.status(200);
+			res.send(file)
+		}
+	});
+
 };
 module.exports = Test;

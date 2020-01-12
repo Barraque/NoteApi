@@ -7,6 +7,7 @@ var note = function(id,notes){
 };
 
 note.createNote = function (notes,result){
+	
 	sql.query("INSERT INTO notes SET ?", notes, function (err, res) {
                 
                 if(err) {
