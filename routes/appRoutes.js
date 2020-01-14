@@ -6,11 +6,19 @@ var todoList = require('../controller/appController.js');
 app.get('/node/:id',function(req,res){
 		todoList.get_note(req,res);	
 	});
-app.post('/node/',function(req,res){
+app.post('/node',function(req,res){
 		todoList.create_a_note(req,res);	
 	});
-app.post('/node/drive',function(req,res){
-		console.log("1");
+app.post('/node/login',function(req,res){
+		todoList.get_auth(req,res);	
+	});
+app.get('/node/drive/file/:name',function(req,res){
+		todoList.get_a_file(req,res);	
+	});
+app.get('/node/drive/liste',function(req,res){
+		todoList.get_files(req,res);	
+	});
+app.post('/node/drive/put',function(req,res){
 		todoList.place_a_file(req,res);	
 	});
 }
