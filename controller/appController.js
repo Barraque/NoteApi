@@ -38,15 +38,19 @@ Controller.create_a_note = function(req, res) {
 	}
 };
 Controller.get_auth = function(req,res){
-	const user = {passwd: "passwd"};
-	if(req.body.passwd == user.passwd){
-		jwt.sign({user},secretkey,{expiresIn:'5m'},(err,token) => {
-		res.json({token:token});	
-		});
-	}
-	else{
-		res.sendStatus(403);
-	}
+	const spawn = require("child_process").spawn;
+	const pythonProcess = spawn('python',['-u',"scriptpy/totppassword.py","SECRETBASED32"]);
+	pythonProcess.stdout.on('data',(passwd) => {
+		if(req.body.passwd.toString() == JSON.parse(passwd)){
+			jwt.sign({passwd},secretkey,{expiresIn:'5m'},(err,token) => {
+			res.json({token:token});	
+			});
+		}
+		else{
+			res.sendStatus(403);
+		}
+	});
+
 
 };
 function verifyToken(req,res){
