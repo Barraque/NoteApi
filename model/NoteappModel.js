@@ -15,7 +15,7 @@ note.createNote = function (notes,result){
                     result(err, null);
                 }
                 else{
-                    console.log(res);
+                    console.log("new note !!!");
                     result(null,notes.id);
                 }
             });   
@@ -29,7 +29,7 @@ note.getNote= function (id,result){
                     result(err, null);
                 }
                 else{
-					console.log(res);
+					console.log("wow a note !!!");
 					result(null, res);
                 }
             });   
