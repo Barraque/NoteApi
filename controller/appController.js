@@ -1,5 +1,5 @@
 'use strict';
-const shortid = require('shortid');
+const randomwords = require('random-words');
 var Task = require('../model/NoteappModel.js');
 var Controller = {};
 Controller.get_note = function(req, res) {
@@ -17,14 +17,11 @@ Controller.get_note = function(req, res) {
 };
 
 Controller.create_a_note = function(req, res) {
-	var new_note = new Task(shortid.generate(),req.body);
-	if( !new_note || !new_note.txt){
+	if(!req.body.txt){
 		res.status(400).send({error:true, message: 'Please provide a txt'});
 	}
-	else{
-		Task.createNote(new_note,function(new_note, task) {
-				res.json(task);
-				});
-	}
+	Task.createNote(new Task(randomwords(),req.body.txt), function(new_note, task) {
+			res.json(task);
+			});
 };
 module.exports = Controller;
