@@ -20,8 +20,10 @@ Controller.create_a_note = function(req, res) {
 	if(!req.body.txt){
 		res.status(400).send({error:true, message: 'Please provide a txt'});
 	}
-	Task.createNote(new Task(randomwords(),req.body.txt), function(new_note, task) {
+	else{
+		Task.createNote(new Task(randomwords(),req.body.txt), function(new_note, task) {
 			res.json(task);
 			});
+	}
 };
 module.exports = Controller;
